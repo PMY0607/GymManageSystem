@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!--日期时间转换器-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.pmy.converter.DateConverter"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 配置自动扫描的包 可以自动识别该包下的所有的注解 -->
+    <context:component-scan base-package="com.pmy.controller" />
+
+    <!-- 注解驱动 表示对springmvc相关注解的支持 -->
+    <!-- json 转换器 -->
+    <mvc:annotation-driven conversion-service="conversionService">
+        <mvc:message-converters>
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <description>JSON转换器</description>
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                        <value>text/html;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
+    <!-- 配置视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/"/>
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+
+    <!-- 配置上传解析器 -->
+    <!-- 设置文件上传大小 -->
+    <!-- 配置编码 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="MaxUploadSize">
+            <value>6000000</value>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <!--静态资源的处理-->
+   <mvc:default-servlet-handler/>
+
+    <!--静态资源的映射-->
+    <mvc:resources mapping="/css/" location="/css/**"/>
+    <mvc:resources mapping="/js/" location="/js/**"/>
+    <mvc:resources mapping="/img/" location="/img/**"/>
+    <mvc:resources mapping="/layui/" location="layui/"/>
+    <mvc:resources mapping="/fonts/" location="/fonts/**"/>
+
+
+
+    <!-- 配置类似于全局的拦截器  如果项目中用到拦截器，需要配此项，如果没用的到拦截器，不能配，否则会报错-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/user/login"/>
+            <mvc:exclude-mapping path="/admin/login"/>
+            <mvc:exclude-mapping path="/user/register"/>
+            <mvc:exclude-mapping path="/admin/register"/>
+            <mvc:exclude-mapping path="/toLogin"/>
+            <mvc:exclude-mapping path="/toRegister"/>
+            <mvc:exclude-mapping path="/register"/>
+            <mvc:exclude-mapping path="/css/**"/>
+            <mvc:exclude-mapping path="/js/**"/>
+            <mvc:exclude-mapping path="/fonts/**"/>
+            <mvc:exclude-mapping path="/img/**"/>
+            <bean class="com.pmy.inter.LoginInterceptor"/>
+       </mvc:interceptor>
+    </mvc:interceptors>
+
+</beans>

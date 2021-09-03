@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+</head>
+<body>
+
+<div id="login"  style="width: 100%; height: 100vh;background-color: rgb(72,61,139); overflow: hidden; margin: 0px;padding: 0px">
+    <div style="width: 500px; margin: 100px auto; color: #4f9eda">
+        <div style="color: #cccccc; font-size: 46px; text-align: center; padding: 30px 0">注册账户</div>
+        <span>${msg}</span>
+        <form id="register" class="form-horizontal input-lg" method="post">
+            <div class="form-group">
+                <label for="username" class="col-sm-3 control-label">用户名</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="username" name="username" required placeholder="用户名">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">密码</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" id="password" name="password" required placeholder="密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">确认密码</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" id="confirm" name="password" required placeholder="确认密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3">
+                    <div class="col-sm-2">
+                        <input type="radio" class="form-control col-sm-2" name="role" checked>
+                    </div>
+                    <div class="col-sm-3">用户</div>
+                    <div class="col-sm-2">
+                        <input type="radio" class="form-control col-sm-2" name="role">
+                    </div>
+                    <div >管理员</div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-5">
+                    <button type="submit" class="btn btn-primary btn-lg col-lg-12">注  册</button>
+                </div>
+                <div class=" col-sm-5">
+                    <a type="submit" class="btn btn-info btn-lg col-lg-12">登  录</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+<script>
+
+</script>
+</html>

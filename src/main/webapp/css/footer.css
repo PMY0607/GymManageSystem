@@ -1,0 +1,118 @@
+/*-- footer --*/
+
+.footer {
+    padding: 4em 0;
+    background: #3b363d;
+}
+
+.w3-agile-footer-grid h3 {
+    color: #FFFFFF;
+    font-size: 1.5em;
+    margin: 0 0 1em 0;
+    letter-spacing: 1px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.w3-agile-footer-grid p {
+    color: #999999;
+    font-size: .9em;
+    line-height: 1.8em;
+    margin: 0;
+}
+
+.w3-agile-footer-grid ul {
+    padding: 0;
+    margin: 0;
+}
+
+.w3-agile-footer-grid ul li {
+    display: block;
+    margin-bottom: .5em;
+    color: #999999;
+    font-size: .9em;
+}
+
+.w3-agile-footer-grid ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: .5em;
+}
+
+.w3-agile-footer-grid ul li a:hover {
+    color: #8a8a8a;
+}
+
+.w3-agile-footer-grid ul li:last-child {
+    margin-bottom: 0;
+}
+
+.w3-agile-footer-grid ul li.text a {
+    color: #999999 !important;
+    margin-bottom: .5em !important;
+    font-size: .9em !important;
+}
+
+.w3-agile-footer-grid ul li.text a:hover {
+    color: #FFFFFF !important;
+}
+
+.w3-agile-footer-grid form input[type="email"] {
+    background: #FFFFFF;
+    box-shadow: none !important;
+    padding: 10px 10px;
+    color: #000000;
+    font-size: .9em;
+    width: 100% !important;
+    border: 1px solid #ffffff;
+    margin: 0 0 1em 0;
+}
+
+.w3-agile-footer-grid form input[type="submit"] {
+    color: #212121;
+    font-size: .875em;
+    border: solid 1px #bdcd00;
+    padding: .5em 2em;
+    text-decoration: none;
+    background: #bdcd00;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+.w3-agile-footer-grid form input[type="submit"]:hover {
+    background: none;
+    color: #FFFFFF;
+    border: solid 1px #FFFFFF;
+}
+
+
+/*-- //footer --*/
+
+
+/*-- copyright --*/
+
+.copyright {
+    padding: 1em 0;
+    background: #212121;
+    text-align: center;
+}
+
+.copyright p {
+    margin: 0;
+    color: #8a8a8a;
+    font-size: .9em;
+}
+
+.copyright p a {
+    color: #8a8a8a;
+    text-decoration: none;
+}
+
+.copyright p a:hover {
+    color: #FFFFFF;
+}
+
+
+/*-- //copyright --*/

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pmy.UserMapper">
+
+    <!--sql语句抽取-->
+    <sql id="selectUser">select * from user</sql>
+
+    <select id="findByCondition" parameterType="user" resultType="user">
+        <include refid="selectUser"></include>
+        <where>
+            <if test="id!=null">
+                and id = #{id}
+            </if>
+            <if test="username!=null">
+                and username = #{username}
+            </if>
+            <if test="password!=null">
+                and password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <select id="findByIds" resultType="user" parameterType="list">
+        <include refid="selectUser"></include>
+        <where>
+            --         其中item表示为list里面的值
+            <foreach collection="list" open="id in(" close=")" item="i" separator=",">
+                #{i}
+            </foreach>
+        </where>
+    </select>
+
+
+    <insert id="">
+        insert into book_info
+        (uid,user_type,placeId,count,deposit,start_time,end_time,book_time,note)
+        values (#{user.id},#{user.vip},#{place.id},#{deposit},#{count},#{startTime},#{endTime},#{bookTime},#{note})
+    </insert>
+
+</mapper>
